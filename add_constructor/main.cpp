@@ -6,11 +6,13 @@ class addNum{
         int a;
         int b;
     public:
-    addNum(int num1, int num2){
-        a = num1;
-        b = num2;
-        cout << "The sum is : " << a+b << endl;
-    }
+        addNum(int num1, int num2){
+            a = 0;
+            b = 0;
+            a = num1;
+            b = num2;
+            cout << "The sum is : " << a+b << endl;
+        }
 };
 
 int main(){
@@ -19,6 +21,6 @@ int main(){
     cin >> n1;
     cout << "Enter the second no. : " << endl;
     cin >> n2;
-    addNum(n1,n2);
+    addNum obj(n1,n2);
     return 0;
 }
