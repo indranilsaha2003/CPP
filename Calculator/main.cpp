@@ -15,9 +15,9 @@ int main()
         cout << "MENU: " << endl;
         cout << "1. Add[+] " << endl;
         cout << "2. Subtract[-] " << endl;
-        cout << "3. Multiplication[*] " << endl;
-        cout << "4. Division[/] " << endl;
-        cout << "5. Quit " << endl;
+        cout << "3. Multiply[*] " << endl;
+        cout << "4. Divide[/] " << endl;
+        cout << "5. Exit " << endl;
         cout << "Enter choice: ";
         cin >> choice;
 
