@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-class Employee {
+class Employee
+{
 private:
     static int count;
     int id;
@@ -10,11 +11,14 @@ private:
     double salary;
 
 public:
-    Employee() {
+    Employee()
+    {
         id = ++count;
+        salary = 0;
     }
 
-    void Details() {
+    void Details()
+    {
         cout << "Enter employee name: ";
         cin >> name;
         cout << "Enter employee age: ";
@@ -22,7 +26,8 @@ public:
         salary = 0;
     }
 
-    void display() {
+    void display()
+    {
         cout << endl;
         cout << "Employee ID : " << id << endl;
         cout << "Name : " << name << endl;
@@ -30,35 +35,39 @@ public:
         cout << "Incremented Salary : " << salary << endl;
     }
 
-    friend void increaseSalary(Employee&, int);
-    friend void setSalary(Employee&, double);
+    friend class Boss;
 };
 
-int Employee::count = 0;
+int Employee::count = 2000;
 
-void increaseSalary(Employee& e, int increment) {
-    e.salary += increment;
-}
-
-void setSalary(Employee& e, double sal) {
-    e.salary = sal;
-}
-
-class Boss {
+class Boss
+{
 public:
-    void Month(Employee &e) {
+    void increaseSalary(Employee &e, int increment)
+    {
+        e.salary += e.salary * increment / 100;
+    }
+
+    void setSalary(Employee &e, double sal)
+    {
+        e.salary = sal;
+    }
+
+    void Month(Employee &e)
+    {
         double sal;
         cout << "Enter salary: ";
         cin >> sal;
         setSalary(e, sal);
         int increment;
-        cout << "Enter increment: ";
+        cout << "Enter increment(in %): ";
         cin >> increment;
         increaseSalary(e, increment);
     }
 };
 
-int main() {
+int main()
+{
     Employee e;
     e.Details();
     Boss d;
