@@ -45,7 +45,7 @@ class Boss
 public:
     void increaseSalary(Employee &e, int increment)
     {
-        e.salary += e.salary * increment / 100;
+        e.salary+= e.salary * increment / 100;
     }
 
     void setSalary(Employee &e, double sal)
