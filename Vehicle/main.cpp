@@ -1,6 +1,8 @@
 #include <iostream>
-#include <string>
+#include <cstring>
+#include <stdlib.h>
 using namespace std;
+
 class Vehicle
 {
 protected:
@@ -11,18 +13,18 @@ protected:
 public:
     void input()
     {
-        cout <<"Enter The Name : ";
-        cin>> name;
-        cout <<"Enter The Distance(in km) : ";
-        cin>> distance;
-        cout <<"Enter The Fuel(in L) : ";
-        cin>> fuel;
+        cout << "Enter The Name : ";
+        cin >> name;
+        cout << "Enter The Distance(in km) : ";
+        cin >> distance;
+        cout << "Enter The Fuel(in L) : ";
+        cin >> fuel;
     }
 
     void displayDetails()
     {
-        cout << "Name Is : " << name <<endl;
-        cout << "Mileage Is : " << distance/fuel << "km" <<endl;
+        cout << "Name Is : " << name << endl;
+        cout << "Mileage Is : " << distance / fuel << "km" << endl;
     }
 };
 
@@ -34,11 +36,11 @@ private:
 public:
     void bike()
     {
-        Vehicle :: input();
-        Vehicle :: displayDetails();
-        cout<<"Enter The price Of Two Wheeler: ";
-        cin>>price;
-        cout<<"The Price Of Two Wheeler Is : "<<price<<endl;
+        Vehicle ::input();
+        Vehicle ::displayDetails();
+        cout << "Enter The price of Two Wheeler : ";
+        cin >> price;
+        cout << "The Price Of Two Wheeler Is : " << price << endl;
     }
 };
 
@@ -50,31 +52,36 @@ private:
 public:
     void car()
     {
-        Vehicle :: input();
-        Vehicle :: displayDetails();
-        cout<<"Enter The price Of Four Wheeler : ";
-        cin>>cost;
-        cout<<"The Price of Four Wheeler is : "<<cost<<endl;
+        Vehicle ::input();
+        Vehicle ::displayDetails();
+        cout << "Enter The price Of Four Wheeler : ";
+        cin >> cost;
+        cout << "The Price of Four Wheeler is : " << cost << endl;
     }
 };
+
 int main()
 {
     TwoWheeler obj1;
     FourWheeler obj2;
     int choice;
-    while(1){
-        cout << "1 for Two Wheeler \n2 for Four Wheeler\nEnter choice : ";
+    while (1)
+    {
+        cout << "\n1 --> Two Wheeler \n2 --> Four Wheeler\n3 --> Exit\nEnter choice : ";
         cin >> choice;
         switch (choice)
         {
-        case 1 :
+        case 1:
             obj1.bike();
             break;
-        case 2 :
+        case 2:
             obj2.car();
             break;
-        default :
-            cout <<"Invalid Choice... Enter again\n"<<endl;
+        case 3:
+            cout << "Exiting..." << endl;
+            exit(0);
+        default:
+            cout << "Invalid Choice... Enter again\n" << endl;
             break;
         }
     }
