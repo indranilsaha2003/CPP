@@ -1,5 +1,5 @@
 #include <iostream>
-#include<string>
+#include <string>
 #include "Acc_class.h"
 using namespace std;
 
