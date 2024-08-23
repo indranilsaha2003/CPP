@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Tuesday {
+private:
+    string name;
+    static int p, q;
+public:
+    Tuesday(string name)
+    {
+        ++p;
+        this->name = name;
+        cout << endl;
+        cout << name << " created" << endl;
+        cout << p << " alive" << endl;
+        cout << q << " dead" << endl;
+    }
+    ~Tuesday()
+    {
+        --p;
+        ++q;
+        cout << endl;
+        cout << name << " destroyed" << endl;
+        cout << p << " alive" << endl;
+        cout << q << " dead" << endl;
+    }
+};
+
+int Tuesday::p = 0;
+int Tuesday::q = 0;
+
+int main()
+{
+    Tuesday t1("t1 ");
+    Tuesday t2("t2 ");
+    {
+        Tuesday t3("t3 ");
+        Tuesday t4("t4 ");
+    }
+    {
+        Tuesday t5("t5 ");
+    }
+    Tuesday t6("t6 ");
+    return 0;
+}
