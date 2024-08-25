@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cstdarg>
+#include <algorithm>
+
+using namespace std;
+
+int calculateTotalScore(int numQuestions, ...) {
+    if (numQuestions < 3) {
+        cout << "A student must answer at least 3 questions." << endl;
+        return 0;
+    }
+
+    va_list args;
+    va_start(args, numQuestions);
+
+    int scores[5];
+
+    for (int i = 0; i < numQuestions; ++i) {
+        scores[i] = va_arg(args, int);
+    }
+
+    va_end(args);
+
+    sort(scores, scores + numQuestions, greater<int>());
+
+    int totalScore = scores[0] + scores[1] + scores[2];
+
+    return totalScore;
+}
+
+int main() {
+    cout << "Total Score (3 questions): " << calculateTotalScore(3, 10, 15, 12) << endl;
+    cout << "Total Score (5 questions): " << calculateTotalScore(5, 15, 10, 9, 12, 15) << endl;
+    cout << "Total Score (4 questions): " << calculateTotalScore(4, 8, 15, 11, 14) << endl;
+    cout << "Total Score (2 questions): " << calculateTotalScore(2, 11, 14) << endl;
+
+    return 0;
+}
